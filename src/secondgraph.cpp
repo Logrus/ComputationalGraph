@@ -25,7 +25,7 @@ int main(int argc, char* argv[])
   graph.add("max1", new MaxGate(),      z, w);
 
   graph.add("sum(mul1,max1)", new AddGate(), "mul1", "max1");
-  graph.add("umul", new UnaryMultiplyGate(), "sum(mul1,max1)");
+  graph.add("umul", new UnaryMultiplyGate(2), "sum(mul1,max1)");
 
   graph.forward();
   graph.backward();

@@ -11,6 +11,9 @@ set  (project_SOURCES src/ComputationalGraph.cpp
                       src/AddGate.cpp
                       src/MaxGate.cpp
                       src/UnaryMultiplyGate.cpp
+                      src/UnaryAddGate.cpp
+                      src/UnaryExponentGate.cpp
+                      src/UnaryXInverseGate.cpp
                       )
 
 # Includes are added to the target for qt creator
@@ -20,8 +23,13 @@ set  (project_HEADERS include/ComputationalGraph.h
                       include/AddGate.h
                       include/MaxGate.h
                       include/UnaryMultiplyGate.h
+                      include/UnaryAddGate.h
+                      include/UnaryExponentGate.h
+                      include/UnaryXInverseGate.h
                       )
 
 add_executable(main src/main.cpp ${project_SOURCES} ${project_HEADERS})
 
 add_executable(secondgraph src/secondgraph.cpp ${project_SOURCES} ${project_HEADERS})
+
+add_executable(thirdgraph src/thirdgraph.cpp ${project_SOURCES} ${project_HEADERS})

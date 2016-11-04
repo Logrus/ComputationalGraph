@@ -9,6 +9,10 @@ class UnaryMultiplyGate : public Gate
 {
 public:
 
+    UnaryMultiplyGate(float multiplier);
+
+    float mult;
+
     void forward();
     void backward();
 
