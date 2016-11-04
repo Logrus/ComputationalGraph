@@ -102,7 +102,7 @@ Example run:
 
 # Running Example 3
    
-<img src="https://github.com/Logrus/ComputationalGraph/blob/master/img/graph3.png" width="350"/ alt="computational graph 3">
+<img src="https://github.com/Logrus/ComputationalGraph/blob/master/img/graph3.png" width="650"/ alt="computational graph 3">
 
 [Image source: http://cs231n.stanford.edu/]
 
