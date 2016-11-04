@@ -1,8 +1,14 @@
-#include "MultiplyGate.hpp"
+#include "MultiplyGate.h"
 
 float MultiplyGate::forward(float a, float b)
 {
-  return a * b; // cool stuff!
+    // Compute local gradient
+    da = b;
+    db = a;
+    // Compute forward pass
+    return a * b;
 }
 
-void MultiplyGate::backward() {}
+pair<float, float> MultiplyGate::backward(float grad) {
+    return { grad*da, grad*db };
+}

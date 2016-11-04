@@ -1,3 +1,3 @@
-#include "Gate.hpp"
+#include "Gate.h"
 
 // Some code
