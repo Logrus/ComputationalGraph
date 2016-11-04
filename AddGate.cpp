@@ -1,15 +1,21 @@
+/*
+ * MIT License
+ * Copyright (c) 2016 Vladislav Tananaev
+ */
 #include "AddGate.h"
 
-float AddGate::forward(float a, float b)
+void AddGate::forward()
 {
     // Compute local gradient
-    da = 1;
-    db = 1;
+    dinput_a = 1;
+    dinput_b = 1;
     // Compute forward pass
-    return a+b;
+    output = (*input_a) + (*input_b);
 }
 
-pair<float, float> AddGate::backward(float grad)
+void AddGate::backward()
 {
-    return { grad*da, grad*db };
+    // Chain rule
+    gradout_a = (*grad_input) * dinput_a;
+    gradout_b = (*grad_input) * dinput_b;
 }

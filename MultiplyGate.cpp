@@ -1,14 +1,21 @@
+/*
+ * MIT License
+ * Copyright (c) 2016 Vladislav Tananaev
+ */
 #include "MultiplyGate.h"
 
-float MultiplyGate::forward(float a, float b)
+void MultiplyGate::forward()
 {
     // Compute local gradient
-    da = b;
-    db = a;
+    dinput_a = (*input_b);
+    dinput_b = (*input_a);
     // Compute forward pass
-    return a * b;
+    output = (*input_a) * (*input_b);
 }
 
-pair<float, float> MultiplyGate::backward(float grad) {
-    return { grad*da, grad*db };
+void MultiplyGate::backward()
+{
+    // Chain rule
+    gradout_a = (*grad_input) * dinput_a;
+    gradout_b = (*grad_input) * dinput_b;
 }

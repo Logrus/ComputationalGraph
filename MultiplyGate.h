@@ -1,16 +1,18 @@
+/*
+ * MIT License
+ * Copyright (c) 2016 Vladislav Tananaev
+ */
 #pragma once
 #include "Gate.h"
-#include <utility>
-using std::pair;
 
 class MultiplyGate : public Gate
 {
 public:
 
-    float forward(float a, float b);
-    pair<float, float> backward(float grad);
+    void forward();
+    void backward();
 
-protected:
-    float da;
-    float db;
+    // Local gradients
+    float dinput_a;
+    float dinput_b;
 };

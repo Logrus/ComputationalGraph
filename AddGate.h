@@ -1,19 +1,18 @@
-#ifndef ADDGATE_H
-#define ADDGATE_H
+/*
+ * MIT License
+ * Copyright (c) 2016 Vladislav Tananaev
+ */
+#pragma once
 #include "Gate.h"
-#include <utility>
-using std::pair;
 
 class AddGate : public Gate
 {
 public:
 
-    float forward(float, float);
-    pair<float, float> backward(float grad);
+    void forward();
+    void backward();
 
-protected:
-    float da;
-    float db;
+    // Local gradient
+    float dinput_a;
+    float dinput_b;
 };
-
-#endif // ADDGATE_H
