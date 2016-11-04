@@ -18,6 +18,25 @@ The graph in the example is from cs231n.
 
 [Image source: http://cs231n.stanford.edu/]
 
+Default code:
+
+```C++
+    float x = -2, y = 5, z = -4;
+
+    ComputationalGraph graph;
+
+    graph.add("sum1", new AddGate(), x, y);
+    graph.add("mul1", new MultiplyGate(), "sum1", z);
+
+    graph.forward();
+    graph.backward();
+
+    cout << "Interpretation:" << endl;
+    cout << " dx " << graph.gates["sum1"]->gradout_a << endl;
+    cout << " dy " << graph.gates["sum1"]->gradout_b << endl;
+    cout << " dz " << graph.gates["mul1"]->gradout_b << endl;
+```
+
 Example run:
 
      ./main
