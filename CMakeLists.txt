@@ -14,6 +14,7 @@ set  (project_SOURCES src/ComputationalGraph.cpp
                       src/UnaryAddGate.cpp
                       src/UnaryExponentGate.cpp
                       src/UnaryXInverseGate.cpp
+                      src/SigmoidGate.cpp
                       )
 
 # Includes are added to the target for qt creator
@@ -26,6 +27,7 @@ set  (project_HEADERS include/ComputationalGraph.h
                       include/UnaryAddGate.h
                       include/UnaryExponentGate.h
                       include/UnaryXInverseGate.h
+                      include/SigmoidGate.h
                       )
 
 add_executable(main src/main.cpp ${project_SOURCES} ${project_HEADERS})
