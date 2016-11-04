@@ -14,7 +14,7 @@ It is based on Stanford's cs231n (http://cs231n.github.io/optimization-2/).
 
 The graph in the example is from cs231n.
 
-<img src="https://github.com/Logrus/ComputationalGraph/blob/master/pictures/graph.png" width="350"/ alt="computational graph">
+<img src="https://github.com/Logrus/ComputationalGraph/blob/master/img/graph.png" width="350"/ alt="computational graph">
 
 [Image source: http://cs231n.stanford.edu/]
 
