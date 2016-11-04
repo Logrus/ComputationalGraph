@@ -2,13 +2,13 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A simple implementation of scalar valued computational graph developed for understanding.
+A simple implementation of a scalar valued computational graph developed for understanding.
 
 It is based on Stanford's cs231n (http://cs231n.github.io/optimization-2/).
 
 # Build
 
-    make buid
+    mkdir buid
     cd build
     cmake ..
     make
