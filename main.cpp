@@ -4,10 +4,12 @@
  */
 #include <iostream> // cout, endl
 #include <cstdlib>  // EXIT_SUCCESS
+#include "ComputationalGraph.h"
 #include "Gate.h"
 #include "AddGate.h"
 #include "MultiplyGate.h"
-#include "ComputationalGraph.h"
+#include "MaxGate.h"
+#include "UnaryMultiplyGate.h"
 
 using std::cout;
 using std::endl;
