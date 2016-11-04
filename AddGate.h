@@ -7,7 +7,6 @@ using std::pair;
 class AddGate : public Gate
 {
 public:
-    AddGate();
 
     float forward(float, float);
     pair<float, float> backward(float grad);

@@ -1,14 +1,11 @@
 #include "AddGate.h"
 
-AddGate::AddGate()
-{
-
-}
-
 float AddGate::forward(float a, float b)
 {
+    // Compute local gradient
     da = 1;
     db = 1;
+    // Compute forward pass
     return a+b;
 }
 
