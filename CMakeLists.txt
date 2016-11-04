@@ -4,21 +4,24 @@ project(main)
 
 add_definitions(-std=c++11)
 
-set  (project_SOURCES ComputationalGraph.cpp
-                      MultiplyGate.cpp
-                      AddGate.cpp
-                      MaxGate.cpp
-                      UnaryMultiplyGate.cpp
+include_directories(include)
+
+set  (project_SOURCES src/ComputationalGraph.cpp
+                      src/MultiplyGate.cpp
+                      src/AddGate.cpp
+                      src/MaxGate.cpp
+                      src/UnaryMultiplyGate.cpp
                       )
 
-set  (project_HEADERS ComputationalGraph.h
-                      Gate.h
-                      MultiplyGate.h
-                      AddGate.h
-                      MaxGate.h
-                      UnaryMultiplyGate.h
+# Includes are added to the target for qt creator
+set  (project_HEADERS include/ComputationalGraph.h
+                      include/Gate.h
+                      include/MultiplyGate.h
+                      include/AddGate.h
+                      include/MaxGate.h
+                      include/UnaryMultiplyGate.h
                       )
 
-add_executable(main main.cpp ${project_SOURCES} ${project_HEADERS})
+add_executable(main src/main.cpp ${project_SOURCES} ${project_HEADERS})
 
-add_executable(secondgraph secondgraph.cpp ${project_SOURCES} ${project_HEADERS})
+add_executable(secondgraph src/secondgraph.cpp ${project_SOURCES} ${project_HEADERS})
