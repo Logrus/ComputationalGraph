@@ -10,6 +10,8 @@ class MaxGate : public Gate
 {
 public:
 
+    inline MaxGate() : Gate(false) {}
+
     void forward();
     void backward();
 

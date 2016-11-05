@@ -10,6 +10,8 @@ class UnaryExponentGate : public Gate
 {
 public:
 
+    inline UnaryExponentGate() : Gate(true) {}
+
     void forward();
     void backward();
 

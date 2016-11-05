@@ -9,6 +9,8 @@ class AddGate : public Gate
 {
 public:
 
+    inline AddGate() : Gate(false) {}
+
     void forward();
     void backward();
 

@@ -10,6 +10,8 @@ class SigmoidGate : public Gate
 {
 public:
 
+    inline SigmoidGate() : Gate(true) {}
+
     float add;
 
     void forward();

@@ -11,9 +11,13 @@ class Gate
 {
 public:
 
+    inline Gate(bool u) : unary(u) {}
+
     virtual void forward() = 0;
     virtual void backward() = 0;
     virtual ~Gate() {};
+
+    const bool unary;
 
     // Variables for forward pass
     float *input_a, *input_b; // Connect to the input variables

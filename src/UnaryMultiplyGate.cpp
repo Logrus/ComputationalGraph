@@ -4,7 +4,7 @@
  */
 #include "UnaryMultiplyGate.h"
 
-UnaryMultiplyGate::UnaryMultiplyGate(float multiplier) : mult(multiplier)
+UnaryMultiplyGate::UnaryMultiplyGate(float multiplier) : mult(multiplier), Gate(true)
 {
 }
 

@@ -131,7 +131,13 @@ void ComputationalGraph::backward(){
     for (auto it = order.rbegin(); it!=order.rend(); ++it){
         Gate* g = gates.at(*it);
         g->backward();
-        std::cout << "[backward] Gate " << *it << " gradoutput_a is " << g->gradout_a << " gradoutput_b is " << g->gradout_b << std::endl;
+
+        std::cout << "[backward] Gate " << *it << " gradoutput_a is " << g->gradout_a;
+        if(!g->unary){
+            std::cout << " gradoutput_b is " << g->gradout_b;
+        }
+        std::cout << std::endl;
+
     }
 }
 

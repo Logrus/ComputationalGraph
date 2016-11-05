@@ -4,7 +4,7 @@
  */
 #include "UnaryAddGate.h"
 
-UnaryAddGate::UnaryAddGate(float addition) : add(addition)
+UnaryAddGate::UnaryAddGate(float addition) : add(addition), Gate(true)
 {
 }
 

@@ -9,6 +9,8 @@ class MultiplyGate : public Gate
 {
 public:
 
+    inline MultiplyGate() : Gate(false) {}
+
     void forward();
     void backward();
 
