@@ -69,7 +69,7 @@ Code (src/secondgraph.cpp):
   graph.add("max1", new MaxGate(),      z, w);
 
   graph.add("sum(mul1,max1)", new AddGate(), "mul1", "max1");
-  graph.add("umul", new UnaryMultiplyGate(), "sum(mul1,max1)");
+  graph.add("umul", new UnaryMultiplyGate(2), "sum(mul1,max1)");
 
   graph.forward();
   graph.backward();
@@ -89,7 +89,7 @@ Example run:
     [forward] Gate max1 output is 2
     [forward] Gate sum(mul1,max1) output is -10
     [forward] Gate umul output is -20
-    [backward] Gate umul gradoutput_a is 2 gradoutput_b is 0
+    [backward] Gate umul gradoutput_a is 2
     [backward] Gate sum(mul1,max1) gradoutput_a is 2 gradoutput_b is 2
     [backward] Gate max1 gradoutput_a is 2 gradoutput_b is 0
     [backward] Gate mul1 gradoutput_a is -8 gradoutput_b is 6
@@ -150,7 +150,7 @@ Example run:
     [forward] Gate sum2 output is 4
     [forward] Gate sum3 output is 1
     [forward] Gate sigm output is 0.731059
-    [backward] Gate sigm gradoutput_a is 0.196612 gradoutput_b is 0
+    [backward] Gate sigm gradoutput_a is 0.196612
     [backward] Gate sum3 gradoutput_a is 0.196612 gradoutput_b is 0.196612
     [backward] Gate sum2 gradoutput_a is 0.196612 gradoutput_b is 0.196612
     [backward] Gate mul1_2 gradoutput_a is -0.393224 gradoutput_b is -0.589836
