@@ -17,7 +17,7 @@ It is based on Stanford's cs231n (http://cs231n.github.io/optimization-2/).
 
 The graph in the example is from cs231n.
 
-<img src="https://github.com/Logrus/ComputationalGraph/blob/master/img/graph.png" width="350"/ alt="computational graph">
+![computational graph x + y * z](https://github.com/Logrus/ComputationalGraph/raw/master/img/graph.png "f = x + y * z")
 
 [Image source: http://cs231n.stanford.edu/]
 
@@ -53,8 +53,8 @@ Example run:
       dz 3
 
 # Running Example 2
-   
-<img src="https://github.com/Logrus/ComputationalGraph/blob/master/img/graph2.png" width="350"/ alt="computational graph 2">
+
+![computational graph (x*y + max(z,w))*2](https://github.com/Logrus/ComputationalGraph/raw/master/img/graph2.png "f = (x*y + max(z,w))*2")
 
 [Image source: http://cs231n.stanford.edu/]
 
@@ -102,7 +102,7 @@ Example run:
 
 # Running Example 3
    
-<img src="https://github.com/Logrus/ComputationalGraph/blob/master/img/graph3.png" width="650"/ alt="computational graph 3">
+![computational graph sigmoid gate](https://github.com/Logrus/ComputationalGraph/raw/master/img/graph3.png "sigmoid gate")
 
 [Image source: http://cs231n.stanford.edu/]
 
