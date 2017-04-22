@@ -14,6 +14,7 @@
 
 using std::cout;
 using std::endl;
+using std::make_shared;
 
 int main(int argc, char* argv[])
 {
@@ -22,8 +23,8 @@ int main(int argc, char* argv[])
 
   ComputationalGraph graph;
 
-  graph.add("sum1", std::make_unique<AddGate>(), x, y);
-  graph.add("mul1", std::make_unique<MultiplyGate>(), "sum1", z);
+  graph.add("sum1", make_shared<AddGate>(), x, y);
+  graph.add("mul1", make_shared<MultiplyGate>(), "sum1", z);
 
   graph.forward();
   graph.backward();

@@ -13,6 +13,7 @@
 
 using std::cout;
 using std::endl;
+using std::make_shared;
 
 int main(int argc, char* argv[])
 {
@@ -21,11 +22,11 @@ int main(int argc, char* argv[])
 
   ComputationalGraph graph;
 
-  graph.add("mul1", new MultiplyGate(), x, y);
-  graph.add("max1", new MaxGate(),      z, w);
+  graph.add("mul1", make_shared<MultiplyGate>(), x, y);
+  graph.add("max1", make_shared<MaxGate>(),      z, w);
 
-  graph.add("sum(mul1,max1)", new AddGate(), "mul1", "max1");
-  graph.add("umul", new UnaryMultiplyGate(2), "sum(mul1,max1)");
+  graph.add("sum(mul1,max1)", make_shared<AddGate>(), "mul1", "max1");
+  graph.add("umul", make_shared<UnaryMultiplyGate>(2), "sum(mul1,max1)");
 
   graph.forward();
   graph.backward();
