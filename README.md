@@ -1,6 +1,7 @@
 # ComputationalGraph
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://travis-ci.org/Logrus/ComputationalGraph.svg?branch=master)](https://travis-ci.org/Logrus/ComputationalGraph)
 
 A simple implementation of a scalar valued computational graph developed for understanding.
 
@@ -28,8 +29,8 @@ Code (src/main.cpp):
 
     ComputationalGraph graph;
 
-    graph.add("sum1", new AddGate(), x, y);
-    graph.add("mul1", new MultiplyGate(), "sum1", z);
+    graph.add("sum1", make_shared<AddGate>(), x, y);
+    graph.add("mul1", make_shared<MultiplyGate>(), "sum1", z);
 
     graph.forward();
     graph.backward();
@@ -65,11 +66,11 @@ Code (src/secondgraph.cpp):
 
   ComputationalGraph graph;
 
-  graph.add("mul1", new MultiplyGate(), x, y);
-  graph.add("max1", new MaxGate(),      z, w);
+  graph.add("mul1", make_shared<MultiplyGate>(), x, y);
+  graph.add("max1", make_shared<MaxGate>(),      z, w);
 
-  graph.add("sum(mul1,max1)", new AddGate(), "mul1", "max1");
-  graph.add("umul", new UnaryMultiplyGate(2), "sum(mul1,max1)");
+  graph.add("sum(mul1,max1)", make_shared<AddGate>(), "mul1", "max1");
+  graph.add("umul", make_shared<UnaryMultiplyGate>(2), "sum(mul1,max1)");
 
   graph.forward();
   graph.backward();
@@ -115,21 +116,21 @@ Code (src/thirdgraph.cpp):
 
   ComputationalGraph graph;
 
-  graph.add("mul1_1", new MultiplyGate(), w0, x0);
-  graph.add("mul1_2", new MultiplyGate(), w1, x1);
+  graph.add("mul1_1", make_shared<MultiplyGate>(), w0, x0);
+  graph.add("mul1_2", make_shared<MultiplyGate>(), w1, x1);
 
-  graph.add("sum2", new AddGate(), "mul1_1", "mul1_2");
+  graph.add("sum2", make_shared<AddGate>(), "mul1_1", "mul1_2");
 
-  graph.add("sum3", new AddGate(), "sum2", w2);
+  graph.add("sum3", make_shared<AddGate>(), "sum2", w2);
 
   // Sigmoid gate can substitute all consecutive gates
-  graph.add("sigm", new SigmoidGate(), "sum3");
+  graph.add("sigm", make_shared<SigmoidGate>(), "sum3");
 
   // Or can be done one operation at a time
-  //graph.add("umul", new UnaryMultiplyGate(-1), "sum3");
-  //graph.add("uexp", new UnaryExponentGate(), "umul");
-  //graph.add("uadd", new UnaryAddGate(+1), "uexp");
-  //graph.add("uinv", new UnaryXInverseGate(), "uadd");
+  //graph.add("umul", make_shared<UnaryMultiplyGate>(-1), "sum3");
+  //graph.add("uexp", make_shared<UnaryExponentGate>(), "umul");
+  //graph.add("uadd", make_shared<UnaryAddGate>(+1), "uexp");
+  //graph.add("uinv", make_shared<UnaryXInverseGate>(), "uadd");
 
   graph.forward();
   graph.backward();
