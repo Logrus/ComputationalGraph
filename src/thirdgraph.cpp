@@ -35,13 +35,13 @@ int main(int argc, char* argv[])
   graph.add("sum3", new AddGate(), "sum2", w2);
 
   // Sigmoid gate can substitute all consecutive gates
-  //graph.add("sigm", new SigmoidGate(), "sum3");
+  graph.add("sigm", new SigmoidGate(), "sum3");
 
   // Or can be done one operation at a time
-  graph.add("umul", new UnaryMultiplyGate(-1), "sum3");
-  graph.add("uexp", new UnaryExponentGate(), "umul");
-  graph.add("uadd", new UnaryAddGate(+1), "uexp");
-  graph.add("uinv", new UnaryXInverseGate(), "uadd");
+  //graph.add("umul", new UnaryMultiplyGate(-1), "sum3");
+  //graph.add("uexp", new UnaryExponentGate(), "umul");
+  //graph.add("uadd", new UnaryAddGate(+1), "uexp");
+  //graph.add("uinv", new UnaryXInverseGate(), "uadd");
 
   graph.forward();
   graph.backward();

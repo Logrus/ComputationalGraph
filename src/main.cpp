@@ -4,6 +4,7 @@
  */
 #include <iostream> // cout, endl
 #include <cstdlib>  // EXIT_SUCCESS
+#include <memory>
 #include "ComputationalGraph.h"
 #include "Gate.h"
 #include "AddGate.h"
@@ -21,8 +22,8 @@ int main(int argc, char* argv[])
 
   ComputationalGraph graph;
 
-  graph.add("sum1", new AddGate(), x, y);
-  graph.add("mul1", new MultiplyGate(), "sum1", z);
+  graph.add("sum1", std::make_unique<AddGate>(), x, y);
+  graph.add("mul1", std::make_unique<MultiplyGate>(), "sum1", z);
 
   graph.forward();
   graph.backward();

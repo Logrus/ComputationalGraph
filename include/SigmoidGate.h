@@ -4,7 +4,7 @@
  */
 #pragma once
 #include "Gate.h"
-#include <math.h>
+#include <cmath>
 
 class SigmoidGate : public Gate
 {

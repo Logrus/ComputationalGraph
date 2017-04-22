@@ -3,13 +3,14 @@
  * Copyright (c) 2016 Vladislav Tananaev
  */
 #include "ComputationalGraph.h"
+using std::string;
 
 ComputationalGraph::ComputationalGraph()
 {
     grad_input_last_gate = 1; // This is gradient input for the last gate
 }
 
-void ComputationalGraph::add(string name, Gate *g, float &input_a, float &input_b){
+void ComputationalGraph::add(string name, Gate::Ptr g, float &input_a, float &input_b){
 
     // Connect inputs
     g->input_a = &input_a;
@@ -22,7 +23,7 @@ void ComputationalGraph::add(string name, Gate *g, float &input_a, float &input_
     order.push_back(name);
 }
 
-void ComputationalGraph::add(string name, Gate *g, string input_a, float &input_b){
+void ComputationalGraph::add(string name, Gate::Ptr g, string input_a, float &input_b){
 
     // Find previous gate with name input_a
     // Note: throws by design if element isn't found
@@ -42,7 +43,7 @@ void ComputationalGraph::add(string name, Gate *g, string input_a, float &input_
     order.push_back(name);
 }
 
-void ComputationalGraph::add(string name, Gate *g, float &input_a, string input_b){
+void ComputationalGraph::add(string name, Gate::Ptr g, float &input_a, string input_b){
 
     // Find previous gate with name input_b
     // Note: throws by design if element isn't found
@@ -62,7 +63,7 @@ void ComputationalGraph::add(string name, Gate *g, float &input_a, string input_
     order.push_back(name);
 }
 
-void ComputationalGraph::add(string name, Gate *g, string input_a, string input_b){
+void ComputationalGraph::add(string name, Gate::Ptr g, string input_a, string input_b){
 
     // Find previous gate with name input_a
     // Note: throws by design if element isn't found
@@ -85,7 +86,7 @@ void ComputationalGraph::add(string name, Gate *g, string input_a, string input_
     order.push_back(name);
 }
 
-void ComputationalGraph::add(string name, Gate *g, string input_a){
+void ComputationalGraph::add(string name, Gate::Ptr g, string input_a){
 
     // Find previous gate with name input_a
     // Note: throws by design if element isn't found
@@ -104,7 +105,7 @@ void ComputationalGraph::add(string name, Gate *g, string input_a){
     order.push_back(name);
 }
 
-void ComputationalGraph::add(string name, Gate *g, float &input_a){
+void ComputationalGraph::add(string name, Gate::Ptr g, float &input_a){
 
     // Connect inputs
     g->input_a = &input_a;
@@ -143,7 +144,7 @@ void ComputationalGraph::backward(){
 
 ComputationalGraph::~ComputationalGraph(){
     // Cleanup all gates
-    for(auto gate: gates){
-        delete gate.second;
-    }
+    //for(auto gate: gates){
+    //    delete gate.second;
+    //}
 }

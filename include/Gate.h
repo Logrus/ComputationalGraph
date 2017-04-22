@@ -3,6 +3,7 @@
  * Copyright (c) 2016 Vladislav Tananaev
  */
 #pragma once
+#include <memory>
 
 /**
  * @brief Base Class Gate
@@ -10,6 +11,7 @@
 class Gate
 {
 public:
+    typedef std::unique_ptr<Gate> Ptr;
 
     inline Gate(bool u) : unary(u) {}
 
