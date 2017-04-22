@@ -1,0 +1,15 @@
+sudo: required
+before_install:
+  - sudo apt-get update
+
+language: cpp
+
+compiler:
+  - clang
+  - gcc
+  
+# Build steps
+script:
+  - mkdir build
+  - cd build
+  - cmake .. && make
