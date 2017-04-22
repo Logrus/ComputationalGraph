@@ -27,7 +27,7 @@ void ComputationalGraph::add(string name, Gate::Ptr g, string input_a, float &in
 
     // Find previous gate with name input_a
     // Note: throws by design if element isn't found
-    Gate* prev_g = gates.at(input_a);
+    auto prev_g = gates.at(input_a);
 
     // Connect inputs
     g->input_a = &(prev_g->output);
@@ -47,7 +47,7 @@ void ComputationalGraph::add(string name, Gate::Ptr g, float &input_a, string in
 
     // Find previous gate with name input_b
     // Note: throws by design if element isn't found
-    Gate* prev_g = gates.at(input_b);
+    auto prev_g = gates.at(input_b);
 
     // Connect inputs
     g->input_a = &input_a;
@@ -67,9 +67,9 @@ void ComputationalGraph::add(string name, Gate::Ptr g, string input_a, string in
 
     // Find previous gate with name input_a
     // Note: throws by design if element isn't found
-    Gate* prev_g_a = gates.at(input_a);
+    auto prev_g_a = gates.at(input_a);
     // Find previous gate with name input_b
-    Gate* prev_g_b = gates.at(input_b);
+    auto prev_g_b = gates.at(input_b);
 
     // Connect inputs
     g->input_a = &(prev_g_a->output);
@@ -90,7 +90,7 @@ void ComputationalGraph::add(string name, Gate::Ptr g, string input_a){
 
     // Find previous gate with name input_a
     // Note: throws by design if element isn't found
-    Gate* prev_g_a = gates.at(input_a);
+    auto prev_g_a = gates.at(input_a);
 
     // Connect inputs
     g->input_a = &(prev_g_a->output);
@@ -121,7 +121,7 @@ void ComputationalGraph::add(string name, Gate::Ptr g, float &input_a){
 void ComputationalGraph::forward(){
     // Call gates in topological order
     for (auto it = order.begin(); it!=order.end(); ++it){
-        Gate* g = gates.at(*it);
+        auto g = gates.at(*it);
         g->forward();
         std::cout << "[forward] Gate " << *it << " output is " << g->output << std::endl;
     }
@@ -130,7 +130,7 @@ void ComputationalGraph::forward(){
 void ComputationalGraph::backward(){
     // Call gates in reverse topological order
     for (auto it = order.rbegin(); it!=order.rend(); ++it){
-        Gate* g = gates.at(*it);
+        auto g = gates.at(*it);
         g->backward();
 
         std::cout << "[backward] Gate " << *it << " gradoutput_a is " << g->gradout_a;
