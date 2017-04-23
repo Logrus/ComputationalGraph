@@ -12,6 +12,29 @@ class Gate
 {
 public:
     typedef std::shared_ptr<Gate> Ptr;
+    // A helper class that hides raw pointer access
+    class placeholder {
+        float* conn;
+    public:
+        void connect(float* f) { conn = f; }
+        placeholder(){}
+        ~placeholder(){}
+        placeholder(const placeholder& p) { conn = p.conn; }
+        placeholder(placeholder&& p) noexcept { conn = p.conn; p.conn = nullptr; }
+        placeholder& operator=(const placeholder& p) { conn = p.conn; return *this;}
+        placeholder& operator=(placeholder&& p) { conn = p.conn; p.conn = nullptr; return *this;}
+        placeholder& operator=(float* f) { conn = f; return *this;}
+        float operator+(const placeholder& p) { return *conn + *p.conn; }
+        float operator-(const placeholder& p) { return *conn - *p.conn; }
+        float operator*(const placeholder& p) { return *conn * *p.conn; }
+        float operator/(const placeholder& p) { return *conn / *p.conn; }
+        bool operator>(const placeholder& p)  { return *conn > *p.conn; }
+        bool operator>=(const placeholder& p) { return *conn >= *p.conn; }
+        bool operator<=(const placeholder& p) { return *conn <= *p.conn; }
+        bool operator<(const placeholder& p)  { return *conn < *p.conn; }
+        bool operator==(const placeholder& p) { return *conn == *p.conn; }
+        operator float() const { return *(conn); }
+    };
 
     Gate(bool u) : unary(u) {}
     Gate(const Gate& g) = delete;
@@ -38,10 +61,10 @@ public:
     const bool unary;
 
     // Variables for forward pass
-    float *input_a, *input_b; // Connect to the input variables
+    placeholder input_a, input_b; // Connect to the input variables
     float output;             // Output is computed in forward
 
     // Variables for output pass
-    float *grad_input;          // Connect to the input gradient
+    placeholder grad_input;          // Connect to the input gradient
     float gradout_a, gradout_b; // Output gradients
 };

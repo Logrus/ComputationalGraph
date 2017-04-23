@@ -13,11 +13,11 @@ void UnaryMultiplyGate::forward(){
     // Compute local gradient
     dinput_a = mult;
     // Compute forward pass
-    output = (*input_a) * mult;
+    output = input_a * mult;
 }
 
 void UnaryMultiplyGate::backward(){
 
     // Chain rule
-    gradout_a = (*grad_input) * dinput_a;
+    gradout_a = grad_input * dinput_a;
 }

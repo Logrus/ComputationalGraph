@@ -7,13 +7,13 @@
 void UnaryExponentGate::forward(){
 
     // Compute local gradient
-    dinput_a = exp((*input_a));
+    dinput_a = exp(input_a);
     // Compute forward pass
-    output = exp((*input_a));
+    output = exp(input_a);
 }
 
 void UnaryExponentGate::backward(){
 
     // Chain rule
-    gradout_a = (*grad_input) * dinput_a;
+    gradout_a = grad_input * dinput_a;
 }

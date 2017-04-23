@@ -7,7 +7,7 @@
 void SigmoidGate::forward(){
 
     // Sigmoid function
-    float sigm = 1.f/(1.f+exp(-(*input_a)));
+    float sigm = 1.f/(1.f+exp(-input_a));
 
     // Compute local gradient
     dinput_a = sigm*(1-sigm);
@@ -18,5 +18,5 @@ void SigmoidGate::forward(){
 void SigmoidGate::backward(){
 
     // Chain rule
-    gradout_a = (*grad_input) * dinput_a;
+    gradout_a = grad_input * dinput_a;
 }
