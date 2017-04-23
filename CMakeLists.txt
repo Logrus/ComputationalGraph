@@ -30,8 +30,13 @@ set  (project_HEADERS include/ComputationalGraph.h
                       include/SigmoidGate.h
                       )
 
-add_executable(main src/main.cpp ${project_SOURCES} ${project_HEADERS})
+add_library(computationalgraph SHARED ${project_SOURCES} ${project_HEADERS})
 
-add_executable(secondgraph src/secondgraph.cpp ${project_SOURCES} ${project_HEADERS})
+add_executable(main src/main.cpp)
+target_link_libraries(main computationalgraph)
 
-add_executable(thirdgraph src/thirdgraph.cpp ${project_SOURCES} ${project_HEADERS})
+add_executable(secondgraph src/secondgraph.cpp)
+target_link_libraries(secondgraph computationalgraph)
+
+add_executable(thirdgraph src/thirdgraph.cpp)
+target_link_libraries(thirdgraph computationalgraph)
