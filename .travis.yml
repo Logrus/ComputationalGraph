@@ -1,22 +1,21 @@
-sudo: required
-
+sudo: false
+language: cpp
+compiler:
+  - clang
+  - gcc
 addons:
   apt:
     sources:
       - george-edison55-precise-backports # cmake 3.2.3 / doxygen 1.8.3
+      - ubuntu-toolchain-r-test
     packages:
       - cmake
       - cmake-data
-
-before_install:
-  - sudo apt-get update
-
-language: cpp
-
-compiler:
-  - clang
-  - gcc
-  
+      - gcc-4.9
+      - g++-4.9
+      - clang
+install:
+- if [ "$CXX" = "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9"; fi
 # Build steps
 script:
   - mkdir build
