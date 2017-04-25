@@ -19,8 +19,8 @@ void ComputationalGraph::add(string name, Gate::Ptr g, float &input_a, float &in
     // Default gradient input for this gate
     g->grad_input.connect( &grad_input_last_gate );
 
-    gates.insert({name, g});
-    order.push_back(name);
+    gates.emplace(name, g);
+    order.emplace_back(name);
 }
 
 void ComputationalGraph::add(string name, Gate::Ptr g, string input_a, float &input_b){
@@ -39,8 +39,8 @@ void ComputationalGraph::add(string name, Gate::Ptr g, string input_a, float &in
     // Connect gradients for previous gate
     prev_g->grad_input.connect( &(g->gradout_a) );
 
-    gates.insert({name, g});
-    order.push_back(name);
+    gates.emplace(name, g);
+    order.emplace_back(name);
 }
 
 void ComputationalGraph::add(string name, Gate::Ptr g, float &input_a, string input_b){
@@ -59,8 +59,8 @@ void ComputationalGraph::add(string name, Gate::Ptr g, float &input_a, string in
     // Connect gradients for previous gate
     prev_g->grad_input.connect( &(g->gradout_b) );
 
-    gates.insert({name, g});
-    order.push_back(name);
+    gates.emplace(name, g);
+    order.emplace_back(name);
 }
 
 void ComputationalGraph::add(string name, Gate::Ptr g, string input_a, string input_b){
@@ -82,8 +82,8 @@ void ComputationalGraph::add(string name, Gate::Ptr g, string input_a, string in
     prev_g_a->grad_input.connect( &(g->gradout_a) );
     prev_g_b->grad_input.connect( &(g->gradout_b) );
 
-    gates.insert({name, g});
-    order.push_back(name);
+    gates.emplace(name, g);
+    order.emplace_back(name);
 }
 
 void ComputationalGraph::add(string name, Gate::Ptr g, string input_a){
@@ -101,8 +101,8 @@ void ComputationalGraph::add(string name, Gate::Ptr g, string input_a){
     // Connect gradients for previous gates
     prev_g_a->grad_input.connect( &(g->gradout_a) );
 
-    gates.insert({name, g});
-    order.push_back(name);
+    gates.emplace(name, g);
+    order.emplace_back(name);
 }
 
 void ComputationalGraph::add(string name, Gate::Ptr g, float &input_a){
@@ -113,8 +113,8 @@ void ComputationalGraph::add(string name, Gate::Ptr g, float &input_a){
     // Default gradient input for this gate
     g->grad_input.connect( &grad_input_last_gate );
 
-    gates.insert({name, g});
-    order.push_back(name);
+    gates.emplace(name, g);
+    order.emplace_back(name);
 }
 
 
